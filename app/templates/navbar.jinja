@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{url_for('main.home')}}">Avenger Assembler</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+            {% if not current_user.is_authenticated %}
+                <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('auth.signup')}}">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('auth.signin')}}">Sign In</a>
+                </li>
+                <li class="nav-item">
+            {% else %}
+                <a class="nav-link" href="#">New Assemblage</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">My Avenger Teams</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('auth.logout')}}">Logout</a>
+                </li>
+            {% endif %}
+            </ul>
+            </div>
+        </div>
+</nav>
