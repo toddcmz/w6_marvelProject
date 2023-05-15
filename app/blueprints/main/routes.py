@@ -1,7 +1,8 @@
 from flask import render_template, url_for, flash, redirect
 from . import bp
-from app.forms import AssembleForm
+from app.forms import AssembleForm, CodexForm
 from app.models import HeroTable, TeamsTable, User
+from app import fullMarvelNames, heroChoices, myMarvelData
 from flask_login import login_required, current_user
 
 @bp.route('/', methods=['GET', 'POST'])
@@ -32,6 +33,15 @@ def assemble():
         h1_id = thisHero1.id
         h2_id = thisHero2.id
         h3_id = thisHero3.id
+        # give stat penalty if there are any repeat heroes
+        if h1_id == h2_id or h1_id == h3_id or h2_id == h3_id:
+            totalStr -= 35
+            totalMag -= 35
+            totalInt -= 35
+            totalCon -= 35
+            totalRes -= 35
+            thisTeamName = thisTeamName+' (Soul-Stretch Debuff)'
+        flash(f"Team {thisTeamName} has repeated heroes, -35 to all team-level stats.", 'success')
         # assign all values to teams table
         thisNewTeam = TeamsTable(teamName=thisTeamName, 
                                  teamStr=totalStr, teamMag=totalMag, 
@@ -50,3 +60,33 @@ def teams(thisUser):
     thisUserId = User.query.filter_by(username=thisUser).first().user_id
     theseTeams = TeamsTable.query.filter_by(user_id=thisUserId)
     return render_template('myteams.jinja', title='My Teams', teams=theseTeams)
+
+@bp.route('/codex', methods=['GET', 'POST'])
+@login_required
+def codex():
+    pickHero = CodexForm()
+    if pickHero.validate_on_submit():
+        # get short and long names
+        thisHeroData = {}
+        thisShortName = pickHero.heroName.data
+        thisIndex = heroChoices.index(thisShortName)
+        thisFullName = fullMarvelNames[thisIndex]
+        thisSiteData = myMarvelData[thisFullName]
+        # get marvel api data from init dictionary
+        thisDesc = thisSiteData[0]
+        thisImgPath = thisSiteData[1]
+        # get remaining data from hero class
+        thisHero = HeroTable.query.filter_by(heroName=thisShortName).first()
+        thisHeroData["heroName"] = thisShortName
+        thisHeroData["desc"] = thisDesc
+        thisHeroData['imgPath'] = thisImgPath
+        thisHeroData['ability1'] = thisHero.sigAbility1
+        thisHeroData['ability2'] = thisHero.sigAbility2
+        thisHeroData['str'] = thisHero.strStat
+        thisHeroData['mag'] = thisHero.magStat
+        thisHeroData['int'] = thisHero.intStat
+        thisHeroData['con'] = thisHero.conStat
+        thisHeroData['res'] = thisHero.resStat
+        return render_template('codex.jinja', title="Hero Codex", heroData = thisHeroData, form=pickHero)
+        
+    return render_template('codex.jinja', title="Hero Codex", heroData = {}, form=pickHero)

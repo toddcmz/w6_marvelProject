@@ -1,0 +1,44 @@
+{% extends 'base.jinja' %}
+
+{% block content %}
+
+<h4>Look up a hero:</h4>
+<p style="width:600px;">Select a hero to view abilities, stats, and dating profile pic.</p>
+    <form action="", method ="post">    
+        {{ form.hidden_tag() }}
+        <div class="heroForm">
+        <div class="heroItem">
+            {{ form.heroName.label }}<br>
+            {{ form.heroName }}
+        </div>
+        </div>
+        <div class="heroSubmitButton">
+            {{ form.submit() }}
+            <br>
+            <br>
+        </div>
+    </form>
+    
+    <div>
+    {% if heroData %}
+        <p style="font-size:35px; color:navy;"> {{ heroData["heroName"] }} </p>
+        <p style="width:500px;"> {{ heroData["desc"] }} </p>
+        <div class="heroBio">
+            <img style="height:200px; width:200px; margin-right:40px;" src="{{ heroData.imgPath }}" alt="HeroPicHere">
+            <div>
+                <p> Strength: {{ heroData.str }} </p>
+                <p> Magic: {{ heroData.mag }} </p>
+                <p> Intellligence: {{ heroData.int }} </p>
+                <p> Constitution: {{ heroData.con }} </p>
+                <p> Resistance: {{ heroData.res }} </p>
+            </div>
+            <div style="margin-left:35px;">
+                <p> Ability 1: {{ heroData.ability1 }} </p>
+                <p> Ability 2: {{ heroData.ability2 }} </p>
+            </div>
+        </div> 
+
+    {% endif %}
+    </div>
+
+{% endblock %}

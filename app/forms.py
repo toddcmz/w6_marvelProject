@@ -22,3 +22,7 @@ class AssembleForm(FlaskForm):
     avenger2 = SelectField('Pick second avenger', choices=heroChoices)
     avenger3 = SelectField('Pick third avenger', choices=heroChoices)
     submit = SubmitField('Create Team')
+
+class CodexForm(FlaskForm):
+    heroName = SelectField('Pick an avenger', choices=heroChoices)
+    submit = SubmitField('View Details')

@@ -102,6 +102,15 @@ def make_newteam(thisUser):
         h1_id = thisHero1.id
         h2_id = thisHero2.id
         h3_id = thisHero3.id
+        # give stat penalty if there are any repeat heroes
+        if h1_id == h2_id or h1_id == h3_id or h2_id == h3_id:
+            totalStr -= 25
+            totalMag -= 25
+            totalInt -= 25
+            totalCon -= 25
+            totalRes -= 25
+            thisTeamName = thisTeamName+' (Soul-Stretch Debuff)'
+            
         thisNewTeam = TeamsTable(teamName=thisTeamName, 
                                  teamStr=totalStr, teamMag=totalMag, 
                                  teamInt=totalInt, teamCon=totalCon, 

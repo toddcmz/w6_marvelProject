@@ -8,17 +8,20 @@
             <ul class="navbar-nav">
             {% if not current_user.is_authenticated %}
                 <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('auth.signup')}}">Sign Up</a>
+                    <a class="nav-link" href="{{ url_for('auth.signup')}}">Sign Up</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('auth.signin')}}">Sign In</a>
+                    <a class="nav-link" href="{{ url_for('auth.signin')}}">Sign In</a>
                 </li>
                 {% else %}
                 <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('main.assemble')}}">New Assemblage</a>
+                    <a class="nav-link" href="{{ url_for('main.assemble')}}">New Assemblage</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('main.teams', thisUser=current_user.username)}}">My Avenger Teams</a>
+                    <a class="nav-link" href="{{ url_for('main.teams', thisUser=current_user.username)}}">My Avenger Teams</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.codex')}}">Hero Codex</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('auth.logout')}}">Logout</a>
