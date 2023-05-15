@@ -1,3 +1,18 @@
 .err-msg{
     color: red;
 }
+
+.heroForm{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.heroItem{
+    padding: 5px 10px 25px 10px;
+}
+
+.heroSubmitButton{
+    padding-left: 10px;
+}

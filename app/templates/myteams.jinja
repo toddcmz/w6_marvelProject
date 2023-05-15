@@ -1,0 +1,29 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+    
+    <h5>My Avenger Assemblages</h5>
+    <br>
+    {% for thisTeam in teams %}
+        <p style="font-size:25px; color:navy;">{{ thisTeam.teamName }} | Total Team Stats | Strength: 
+        {{ thisTeam.teamStr }} | Magic: {{ thisTeam.teamMag }} | Intelligence: {{ thisTeam.teamInt }} | 
+        Constitution: {{ thisTeam.teamCon }} | Resistance: {{ thisTeam.teamRes }}</p>
+        <p style="font-size:20px;">{{thisTeam.hero1.heroName}}</p>
+        <p>Ability 1: {{ thisTeam.hero1.sigAbility1 }} | Ability 2: {{ thisTeam.hero1.sigAbility2 }}</p>
+        <p>Strength: {{ thisTeam.hero1.strStat }} | Magic: {{ thisTeam.hero1.magStat }} | 
+        Intelligence: {{ thisTeam.hero1.intStat }} | Constitution: {{ thisTeam.hero1.conStat }} | 
+        Resistance: {{ thisTeam.hero1.resStat }}</p>
+        <p style="font-size:20px;">{{thisTeam.hero2.heroName}}</p>
+        <p>Ability 1: {{ thisTeam.hero2.sigAbility1 }} | Ability 2: {{ thisTeam.hero2.sigAbility2 }}</p>
+        <p>Strength: {{ thisTeam.hero2.strStat }} | Magic: {{ thisTeam.hero2.magStat }} | 
+        Intelligence: {{ thisTeam.hero2.intStat }} | Constitution: {{ thisTeam.hero2.conStat }} | 
+        Resistance: {{ thisTeam.hero2.resStat }}</p>
+        <p style="font-size:20px;">{{thisTeam.hero3.heroName}}</p>
+        <p>Ability 1: {{ thisTeam.hero3.sigAbility1 }} | Ability 2: {{ thisTeam.hero3.sigAbility2 }}</p>
+        <p>Strength: {{ thisTeam.hero3.strStat }} | Magic: {{ thisTeam.hero3.magStat }} | 
+        Intelligence: {{ thisTeam.hero3.intStat }} | Constitution: {{ thisTeam.hero3.conStat }} | 
+        Resistance: {{ thisTeam.hero3.resStat }}</p>
+        <br>        
+    {% endfor %}
+    
+{% endblock %}

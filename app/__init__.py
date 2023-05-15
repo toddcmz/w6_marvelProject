@@ -9,6 +9,11 @@ app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)
+# Spider-Man (Miles Morales)
+# War Machine (Marvel: Avengers Alliance)
+heroChoices = ["Black Panther", "Black Widow", "Captain America", "Doctor Strange", 
+               "Hawkeye", "Hulk", "Iron Man", "Loki", "Nick Fury", "Scarlet Witch",
+               "Spider-Man", "Thor", "Vision", "War Machine", "Wolverine"]
 
 login.login_view = 'auth.signin'
 login.login_message = 'Anonymous users are not allowed to visit that page. Please log in, first.'

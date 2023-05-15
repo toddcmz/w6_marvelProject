@@ -1,0 +1,38 @@
+This file exists to build a static hero table, and easily
+run the commands to initiate that table and push it up 
+to SQL for ongoing reference. This file is otherwise unused
+in the app, and does not on its own run commands, nor get 
+imported or called elsewhere.
+
+panther = HeroTable(heroName = "Black Panther", sigAbility1 = "Herbal Strength", sigAbility2 = "Tactical Mind", strStat = 45, magStat = 10, intStat = 65, conStat = 50, resStat = 50)
+panther.commit()
+widow = HeroTable(heroName = "Black Widow", sigAbility1 = "Espionage", sigAbility2 = "Hand-to-Hand Specialist", strStat = 25, magStat = 0, intStat = 85, conStat = 20, resStat = 0)
+widow.commit()
+cap = HeroTable(heroName = "Captain America", sigAbility1 = "Super Soldier", sigAbility2 = "Vibranium Shield", strStat = 45, magStat = 0, intStat = 45, conStat = 65, resStat = 35)
+cap.commit()
+strange = HeroTable(heroName = "Doctor Strange", sigAbility1 = "Magic", sigAbility2 = "Genius", strStat = 5, magStat = 100, intStat = 90, conStat = 30, resStat = 95)
+strange.commit()
+groot = HeroTable(heroName = "Groot", sigAbility1 = "Tree Strength", sigAbility2 = "Tough", strStat = 65, magStat = 25, intStat = 20, conStat = 75, resStat = 75)
+groot.commit()
+hawk = HeroTable(heroName = "Hawkeye", sigAbility1 = "Marksman", sigAbility2 = "Tactical Mind", strStat = 25, magStat = 5, intStat = 55, conStat = 30, resStat = 0)
+hawk.commit()
+hulk = HeroTable(heroName = "Hulk", sigAbility1 = "Rage", sigAbility2 = "Overwhelm", strStat = 100, magStat = 15, intStat = 50, conStat = 95, resStat = 95)
+hulk.commit()
+iron = HeroTable(heroName = "Iron Man", sigAbility1 = "Battletech", sigAbility2 = "Tactical Mind", strStat = 75, magStat = 0, intStat = 90, conStat = 85, resStat = 50)
+iron.commit()
+loki = HeroTable(heroName = "Loki", sigAbility1 = "Demigod", sigAbility2 = "Trickster", strStat = 20, magStat = 80, intStat = 80, conStat = 30, resStat = 85)
+loki.commit()
+fury = HeroTable(heroName = "Nick Fury", sigAbility1 = "Eyepatch", sigAbility2 = "Tactical Mind", strStat = 10, magStat = 0, intStat = 95, conStat = 10, resStat = 0)
+fury.commit()
+scarlet = HeroTable(heroName = "Scarlet Witch", sigAbility1 = "Telekinesis", sigAbility2 = "Sorceress", strStat = 10, magStat = 90, intStat = 45, conStat = 25, resStat = 65)
+scarlet.commit()
+spider = HeroTable(heroName = "Spider-Man", sigAbility1 = "Spider Strength", sigAbility2 = "Witty", strStat = 55, magStat = 0, intStat = 65, conStat = 65, resStat = 40)
+spider.commit()
+thor = HeroTable(heroName = "Thor", sigAbility1 = "Demigod", sigAbility2 = "Lightning", strStat = 70, magStat = 70, intStat = 35, conStat = 85, resStat = 75)
+thor.commit()
+vision = HeroTable(heroName = "Vision", sigAbility1 = "Regeneration", sigAbility2 = "Superhuman", strStat = 80, magStat = 75, intStat = 75, conStat = 80, resStat = 80)
+vision.commit()
+war = HeroTable(heroName = "War Machine", sigAbility1 = "Firepower", sigAbility2 = "Enlisted", strStat = 60, magStat = 0, intStat = 50, conStat = 65, resStat = 20)
+war.commit()
+wolv = HeroTable(heroName = "Wolverine", sigAbility1 = "Adamantium Claws", sigAbility2 = "Regeneration", strStat = 60, magStat = 0, intStat = 25, conStat = 100, resStat = 85)
+wolv.commit()

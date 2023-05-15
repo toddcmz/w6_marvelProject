@@ -1,0 +1,38 @@
+{% extends 'base.jinja' %}
+
+{% block content %}
+
+<h4>Avengers Assemble!</h4>
+<p style="width:600px;">Welcome to the MCU, where anything is possible, including assemblages
+with copies of the same hero. Note, however, such a team will face stat penalties. 
+Creating copies of oneself stretches the soul a bit thin...</p>
+    <form action="", method ="post">    
+        {{ form.hidden_tag() }}
+        <div class="heroForm">
+        <div class="heroItem">
+            {{ form.teamName.label}}<br>
+            {{ form.teamName(size=25)}}
+            {% for error in form.teamName.errors %} 
+                <span class="err-msg">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="heroItem">
+            {{ form.avenger1.label}}<br>
+            {{ form.avenger1}}
+        </div>
+        <div class="heroItem">
+            {{ form.avenger2.label}}<br>
+            {{ form.avenger2}}
+        </div>
+        <div class="heroItem">
+            {{ form.avenger3.label}}<br>
+            {{ form.avenger3}}
+        </div>
+        </div>
+        <div class="heroSubmitButton">
+            {{ form.submit() }}
+        </div>
+    </form>
+    
+
+{% endblock %}

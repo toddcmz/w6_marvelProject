@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, SelectField, SelectMultipleField
 from wtforms.validators import DataRequired, Email
+from app import heroChoices
 
 class SignupForm(FlaskForm):
     username = StringField('username', validators=[DataRequired()])
@@ -14,3 +15,10 @@ class SigninForm(FlaskForm):
     username = StringField('username', validators=[DataRequired()])
     password = PasswordField('password', validators=[DataRequired()])
     submit = SubmitField('Sign In')
+
+class AssembleForm(FlaskForm):
+    teamName = StringField('Team Name', validators=[DataRequired()])
+    avenger1 = SelectField('Pick first avenger', choices=heroChoices)
+    avenger2 = SelectField('Pick second avenger', choices=heroChoices)
+    avenger3 = SelectField('Pick third avenger', choices=heroChoices)
+    submit = SubmitField('Create Team')
