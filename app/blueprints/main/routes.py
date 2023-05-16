@@ -41,7 +41,7 @@ def assemble():
             totalCon -= 35
             totalRes -= 35
             thisTeamName = thisTeamName+' (Soul-Stretch Debuff)'
-        flash(f"Team {thisTeamName} has repeated heroes, -35 to all team-level stats.", 'success')
+            flash(f"Team {thisTeamName} has repeated heroes, -35 to all team-level stats.", 'success')
         # assign all values to teams table
         thisNewTeam = TeamsTable(teamName=thisTeamName, 
                                  teamStr=totalStr, teamMag=totalMag, 
