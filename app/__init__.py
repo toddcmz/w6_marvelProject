@@ -4,12 +4,14 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 from marvel import Marvel
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)
+CORS(app)
 # Spider-Man (Miles Morales)
 # War Machine (Marvel: Avengers Alliance)
 # these are used in the dropdown menus when picking heroes
